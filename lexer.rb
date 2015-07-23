@@ -1,11 +1,10 @@
 class Lexer < Formula
 	desc "A library for lexing text, similar to flex for C/C++."
 	homepage "https://github.com/Toberumono/Lexer"
-	revision 9
 
 	url "https://github.com/Toberumono/Lexer.git", :using => :git
 
-	version "2.1"
+	version "2.2"
 
 	#option "prefix", "The root directory in which to download and compile the library [Default: ~/libraries/]"
 
