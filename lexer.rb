@@ -10,7 +10,7 @@ class Lexer < Formula
 	#option "prefix", "The root directory in which to download and compile the library [Default: ~/libraries/]"
 
 	depends_on "ant" => :build
-	depends_on "git" => :build
+	depends_on :git => :build
 
 	def install
 		system "ant", "-Dprefix=\"./\""
