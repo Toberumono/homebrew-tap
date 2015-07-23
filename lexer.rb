@@ -3,6 +3,7 @@ class Lexer < Formula
 	homepage "https://github.com/Toberumono/Lexer"
 
 	url "https://github.com/Toberumono/Lexer.git", :using => :git, :tag => "Stable"
+	mirror "https://github.com/Toberumono/Lexer.git", :using => :git
 
 	version "2.2"
 

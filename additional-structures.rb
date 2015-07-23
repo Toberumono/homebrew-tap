@@ -3,6 +3,7 @@ class AdditionalStructures < Formula
 	homepage "https://github.com/Toberumono/Additional-Structures"
 
 	url "https://github.com/Toberumono/Additional-Structures.git", :using => :git, :tag => "Stable"
+	mirror "https://github.com/Toberumono/Additional-Structures.git", :using => :git
 
 	version "1.2"
 
