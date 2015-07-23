@@ -6,8 +6,6 @@ class Lexer < Formula
 
 	version "2.2"
 
-	#option "prefix", "The root directory in which to download and compile the library [Default: ~/libraries/]"
-
 	depends_on "ant" => :build
 
 	def install

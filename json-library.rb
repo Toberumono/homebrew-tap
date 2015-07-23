@@ -9,6 +9,7 @@ class JsonLibrary < Formula
 
 	depends_on "ant" => :build
 	depends_on "toberumono/tap/lexer"
+	depends_on "toberumono/tap/additional-structures"
 
 	def install
 		system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{HOMEBREW_PREFIX}/lib\""
