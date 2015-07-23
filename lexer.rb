@@ -1,4 +1,4 @@
-class JSONLibrary < Formula
+class Lexer < Formula
 	desc "A library for lexing text, similar to flex for C/C++."
 	homepage "https://github.com/Toberumono/Lexer"
 	revision 0
