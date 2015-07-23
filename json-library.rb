@@ -1,7 +1,7 @@
 class JsonLibrary < Formula
 	desc "A library for parsing JSON text and reading and writing said text to and from files."
 	homepage "https://github.com/Toberumono/JSON-Library"
-	revision 1
+	revision 2
 
 	url "https://github.com/Toberumono/JSON-Library.git", :using => :git, :tag => "Stable"
 	mirror "https://github.com/Toberumono/JSON-Library.git"
