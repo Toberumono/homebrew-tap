@@ -17,6 +17,6 @@ class Lexer < Formula
 	end
 
 	def caveats
-		"In order to use this library in a Java program, add #{lib} to your classpath."
+		"In order to use this library in a Java program, add #{HOMEBREW_PREFIX}/lib to your classpath."
 	end
 end
