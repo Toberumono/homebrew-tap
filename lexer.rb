@@ -1,7 +1,7 @@
 class Lexer < Formula
 	desc "A library for lexing text, similar to flex for C/C++."
 	homepage "https://github.com/Toberumono/Lexer"
-	revision 3
+	revision 4
 
 	url "https://github.com/Toberumono/Lexer.git", :using => :git, :tag => "Stable"
 
@@ -12,6 +12,7 @@ class Lexer < Formula
 	depends_on "ant" => :build
 
 	def install
+		args = []
 		args << "--Dprefix=./"
 		system "ant", *args
 	end
