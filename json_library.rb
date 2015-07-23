@@ -1,4 +1,4 @@
-class JSONLibrary < Formula
+class JSON_Library < Formula
 	desc "A library for parsing JSON text and reading and writing said text to and from files."
 	homepage "https://github.com/Toberumono/JSON-Library"
 	revision 0
