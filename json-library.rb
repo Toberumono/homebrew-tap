@@ -4,7 +4,7 @@ class JsonLibrary < Formula
 	revision 1
 
 	url "https://github.com/Toberumono/JSON-Library.git", :using => :git, :tag => "Stable"
-	mirror "https://github.com/Toberumono/JSON-Library.git", :using => :git
+	mirror "https://github.com/Toberumono/JSON-Library.git"
 
 	version "2.0"
 
