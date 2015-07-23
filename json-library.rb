@@ -3,7 +3,7 @@ class JsonLibrary < Formula
 	homepage "https://github.com/Toberumono/JSON-Library"
 	revision 1
 
-	url "https://github.com/Toberumono/JSON-Library.git", :using => :git
+	url "https://github.com/Toberumono/JSON-Library.git", :using => :git, :tag => "Stable"
 
 	version "2.0"
 

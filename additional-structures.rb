@@ -2,7 +2,7 @@ class AdditionalStructures < Formula
 	desc "A collection of structures used throughout my libraries."
 	homepage "https://github.com/Toberumono/Additional-Structures"
 
-	url "https://github.com/Toberumono/Additional-Structures.git", :using => :git
+	url "https://github.com/Toberumono/Additional-Structures.git", :using => :git, :tag => "Stable"
 
 	version "1.2"
 
