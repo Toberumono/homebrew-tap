@@ -10,10 +10,13 @@ class Lexer < Formula
 	#option "prefix", "The root directory in which to download and compile the library [Default: ~/libraries/]"
 
 	depends_on "ant" => :build
-	depends_on :git => :build
 
 	def install
 		system "ant", "-Dprefix=\"./\""
 		lib.install "lexer.jar"
+	end
+
+	def caveats
+		"In order to use this library in a Java program, add #{lib} to your classpath."
 	end
 end
