@@ -7,17 +7,17 @@ class Lexer < Formula
 
 	version "2.1"
 
-	option "prefix", "The root directory in which to download and compile the library [Default: ~/libraries/]"
+	option "with-prefix", "The root directory in which to download and compile the library [Default: ~/libraries/]"
 
 	depends_on "ant" => :build
 
 	def install
-		opoo "prefix = #{prefix}"
+		opoo "with-prefix = #{with-prefix}"
 		args = []
-		if prefix?
-			args << "--Dprefix=~/libraries/"
+		if build.with? "prefix"
+			args << "--Dprefix=#{with-prefix}"
 		else
-			args << "--Dprefix=#{prefix}"
+			args << "--Dprefix=~/libraries/"
 		end
 		system "ant", *args
 	end
