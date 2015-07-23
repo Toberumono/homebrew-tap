@@ -7,9 +7,8 @@ class JSON_Library < Formula
 
 	version "2.0"
 
-	#option "prefix", "The root directory in which to download and compile the library [Default: ~/libraries/]"
-
 	depends_on "ant" => :build
+	depends_on "toberumono/tap/lexer"
 
 	def install
 		system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{HOMEBREW_PREFIX}/lib\""
