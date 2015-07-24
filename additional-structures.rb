@@ -1,10 +1,11 @@
 class AdditionalStructures < Formula
 	desc "A collection of structures used throughout my libraries."
 	homepage "https://github.com/Toberumono/Additional-Structures"
-	revision 2
+	revision 3
 
-	url "https://github.com/Toberumono/Additional-Structures.git", :using => :git, :tag => "1.2"
+	url "https://github.com/Toberumono/Additional-Structures.git", :tag => "1.2"
 
+	depends_on :java => "1.8+"
 	depends_on "ant" => :build
 
 	def install
