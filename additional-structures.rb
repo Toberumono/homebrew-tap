@@ -9,11 +9,22 @@ class AdditionalStructures < Formula
 	depends_on "ant" => :build
 
 	def install
+		@jar_name="AdditionalStructures.jar"
 		system "ant", "-Dprefix=\"./\""
-		lib.install "AdditionalStructures.jar"
+		ENV["LINK"] = ENV["LINK"] || ""
+		lib.install "#{@jar_name}"
+		if ENV["LINK"] != ""
+			system "ln", "-sf", "#{HOMEBREW_PREFIX}/lib/#{@jar_name}", (ENV["LINK"] + "/#{@jar_name}")
+		end
 	end
 
 	def caveats
-		"In order to use this library in a Java program, add #{HOMEBREW_PREFIX}/lib to your classpath."
+		s = "\tIn order to use this library in a Java program, add #{HOMEBREW_PREFIX}/lib to your classpath.\n"
+		if ENV["LINK"] != ""
+			s += "\tMake sure to remove:\n"
+			s += "\t" + ENV["LINK"] + "/#{@jar_name}\n"
+			s += "\tif you uninstall this package - externally linked files cannot be tracked by homebrew."
+			s
+		end
 	end
 end
