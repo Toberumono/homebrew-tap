@@ -27,3 +27,4 @@ class Lexer < Formula
 			s
 		end
 	end
+end
