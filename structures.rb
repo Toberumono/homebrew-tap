@@ -1,11 +1,10 @@
-class AdditionalStructures < Formula
+class Structures < Formula
   desc "A collection of structures used throughout my libraries."
-  @@jar_name="AdditionalStructures.jar"
-  @@project_url="https://github.com/Toberumono/Additional-Structures"
+  @@jar_name="Structures.jar"
+  @@project_url="https://github.com/Toberumono/Structures"
   homepage "#{@@project_url}"
-  revision 6
 
-  url "#{@@project_url}.git", :tag => "2.2"
+  url "#{@@project_url}.git", :tag => "2.0"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build

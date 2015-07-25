@@ -1,15 +1,14 @@
-class JsonLibrary < Formula
-  desc "A library for parsing JSON text and reading and writing said text to and from files."
-  @@jar_name="JSONLib.jar"
-  @@project_url="https://github.com/Toberumono/JSON-Library"
+class NamelistParser < Formula
+  desc "A library for reading and writing WRF namelist files."
+  @@jar_name="NamelistParser.jar"
+  @@project_url="https://github.com/Toberumono/Namelist-Parser"
   homepage "#{@@project_url}"
 
   url "#{@@project_url}.git", :tag => "2.2"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
-  depends_on "lexer"
-  depends_on "structures"
+  depends_on "JsonLibrary"
 
   def install
     system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{HOMEBREW_PREFIX}/libexec\""
