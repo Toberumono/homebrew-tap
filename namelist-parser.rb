@@ -4,7 +4,7 @@ class NamelistParser < Formula
   @@project_url="https://github.com/Toberumono/Namelist-Parser"
   homepage "#{@@project_url}"
 
-  url "#{@@project_url}.git", :tag => "2.2"
+  url "#{@@project_url}.git", :tag => "1.2"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
