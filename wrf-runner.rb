@@ -3,6 +3,7 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "1.1"
 
@@ -20,8 +21,8 @@ class WrfRunner < Formula
     if !(etc/"wrf-runner/configuration.json").exist?
       mv "configuration.json", etc/"wrf-runner/configuration.json"
     end
-    system "chmod", "777", "wrf-linker.sh"
-    bin.install "wrf-linker.sh"
+    #Yeah, this is messing, but fucking hell, Homebrew likes to make things execute only.
+    cp "wrf-linker.sh", "#{HOMEBREW_PREFIX}/bin/wrf-linker.sh"
   end
 
   def caveats
