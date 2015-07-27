@@ -3,7 +3,7 @@ class JsonLibrary < Formula
   @@jar_name="JSONLib.jar"
   @@project_url="https://github.com/Toberumono/JSON-Library"
   homepage "#{@@project_url}"
-  revision 4
+  revision 5
 
   url "#{@@project_url}.git", :tag => "2.3.1"
 
@@ -13,7 +13,7 @@ class JsonLibrary < Formula
   depends_on "structures"
 
   def install
-    system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{lib}\""
+    system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{HOMEBREW_PREFIX}/lib\""
     lib.install "#{@@jar_name}"
   end
 
