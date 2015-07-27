@@ -3,9 +3,8 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
-  revision 5
 
-  url "#{@@project_url}.git", :tag => "1.0.1"
+  url "#{@@project_url}.git", :tag => "1.1"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
@@ -21,12 +20,16 @@ class WrfRunner < Formula
     if !(etc/"wrf-runner/configuration.json").exist?
       mv "configuration.json", etc/"wrf-runner/configuration.json"
     end
+    system "chmod", "777", "wrf-linker.sh"
+    bin.install "wrf-linker.sh"
   end
 
   def caveats
     <<-EOS.undent
-      In order to reference #{@@jar_name} in a Java program,
-      add #{HOMEBREW_PREFIX}/lib to your classpath.
+      There are two ways to use this program.
+      You can either run it from #{HOMEBREW_PREFIX}/lib/#{@@jar_name}, or,
+      you can run "wrf-linker.sh <directory from which you want to run WRFRunner>".
+      I highly reccomend the second option.
     EOS
   end
 end
