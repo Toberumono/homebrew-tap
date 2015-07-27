@@ -3,6 +3,7 @@ class Lexer < Formula
   @@jar_name="Lexer.jar"
   @@project_url="https://github.com/Toberumono/Lexer"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "2.2"
 
@@ -11,6 +12,7 @@ class Lexer < Formula
 
   def install
     system "ant", "-Dprefix=\"./\""
+    libexec.mkpath
     libexec.install "#{@@jar_name}"
   end
 

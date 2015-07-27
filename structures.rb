@@ -3,6 +3,7 @@ class Structures < Formula
   @@jar_name="Structures.jar"
   @@project_url="https://github.com/Toberumono/Structures"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "1.2"
 
@@ -11,6 +12,7 @@ class Structures < Formula
 
   def install
     system "ant", "-Dprefix=\"./\""
+    libexec.mkpath
     libexec.install "#{@@jar_name}"
   end
 
