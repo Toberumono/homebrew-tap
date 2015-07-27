@@ -3,7 +3,7 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
-  revision 4
+  revision 5
 
   url "#{@@project_url}.git", :tag => "1.0.1"
 
@@ -15,8 +15,12 @@ class WrfRunner < Formula
   def install
     system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{HOMEBREW_PREFIX}/lib\""
     lib.install "#{@@jar_name}"
-    mkdir_p etc/"wrf-runner"
-    mv "configuration.json", etc/"wrf-runner/configuration.json"
+    if !(etc/"wrf-runner").exist?
+      mkdir_p etc/"wrf-runner"
+    end
+    if !(etc/"wrf-runner/configuration.json").exist?
+      mv "configuration.json", etc/"wrf-runner/configuration.json"
+    end
   end
 
   def caveats
