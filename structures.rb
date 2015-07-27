@@ -3,7 +3,7 @@ class Structures < Formula
   @@jar_name="Structures.jar"
   @@project_url="https://github.com/Toberumono/Structures"
   homepage "#{@@project_url}"
-  revision 1
+  revision 2
 
   url "#{@@project_url}.git", :tag => "1.2"
 
@@ -12,14 +12,13 @@ class Structures < Formula
 
   def install
     system "ant", "-Dprefix=\"./\""
-    libexec.mkpath
-    libexec.install "#{@@jar_name}"
+    lib.install "#{@@jar_name}"
   end
 
   def caveats
     <<-EOS.undent
       In order to reference #{@@jar_name} in a Java program,
-      add #{HOMEBREW_PREFIX}/libexec to your classpath.
+      add #{HOMEBREW_PREFIX}/lib to your classpath.
     EOS
   end
 end

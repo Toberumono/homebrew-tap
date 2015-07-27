@@ -3,7 +3,7 @@ class NamelistParser < Formula
   @@jar_name="NamelistParser.jar"
   @@project_url="https://github.com/Toberumono/Namelist-Parser"
   homepage "#{@@project_url}"
-  revision 4
+  revision 5
 
   url "#{@@project_url}.git", :tag => "1.2"
 
@@ -12,15 +12,14 @@ class NamelistParser < Formula
   depends_on "json-library"
 
   def install
-    system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{libexec}\""
-    libexec.mkpath
-    libexec.install "#{@@jar_name}"
+    system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{lib}\""
+    lib.install "#{@@jar_name}"
   end
 
   def caveats
     <<-EOS.undent
       In order to reference #{@@jar_name} in a Java program,
-      add #{HOMEBREW_PREFIX}/libexec to your classpath.
+      add #{HOMEBREW_PREFIX}/lib to your classpath.
     EOS
   end
 end
