@@ -4,7 +4,7 @@ class WrfRunner < Formula
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
 
-  url "#{@@project_url}.git", :tag => "1.1.1"
+  url "#{@@project_url}.git", :tag => "1.1.2"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
