@@ -3,16 +3,15 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
-  revision 5
 
-  url "#{@@project_url}.git", :tag => "1.0"
+  url "#{@@project_url}.git", :tag => "1.0.1"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
   depends_on "namelist-parser"
 
   def install
-    system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{HOMEBREW_PREFIX}/lib\""
+    system "ant", "-Dprefix=\"./\"", "-Duse.homebrew=true"
     lib.install "#{@@jar_name}"
   end
 
