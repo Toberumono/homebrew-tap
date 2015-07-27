@@ -3,7 +3,7 @@ class NamelistParser < Formula
   @@jar_name="NamelistParser.jar"
   @@project_url="https://github.com/Toberumono/Namelist-Parser"
   homepage "#{@@project_url}"
-  revision 2
+  revision 3
 
   url "#{@@project_url}.git", :tag => "1.2"
 
@@ -12,7 +12,7 @@ class NamelistParser < Formula
   depends_on "json-library"
 
   def install
-    system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{HOMEBREW_PREFIX}/libexec\""
+    system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{libexec}\""
     libexec.install "#{@@jar_name}"
   end
 
