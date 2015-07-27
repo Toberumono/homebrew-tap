@@ -13,6 +13,7 @@ class NamelistParser < Formula
 
   def install
     system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{HOMEBREW_PREFIX}/lib\""
+    system "chmod", "777", 
     lib.install "#{@@jar_name}"
   end
 
