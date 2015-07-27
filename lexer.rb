@@ -3,9 +3,8 @@ class Lexer < Formula
   @@jar_name="Lexer.jar"
   @@project_url="https://github.com/Toberumono/Lexer"
   homepage "#{@@project_url}"
-  revision 2
 
-  url "#{@@project_url}.git", :tag => "2.2"
+  url "#{@@project_url}.git", :tag => "2.2.1"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build

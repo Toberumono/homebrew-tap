@@ -3,9 +3,8 @@ class Utils < Formula
   @@jar_name="Utils.jar"
   @@project_url="https://github.com/Toberumono/Utils"
   homepage "#{@@project_url}"
-  revision 2
 
-  url "#{@@project_url}.git", :tag => "1.2"
+  url "#{@@project_url}.git", :tag => "1.2.1"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
