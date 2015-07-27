@@ -3,6 +3,7 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "1.1.3"
 
@@ -12,7 +13,7 @@ class WrfRunner < Formula
   depends_on "namelist-parser"
 
   def install
-    system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{HOMEBREW_PREFIX}/lib\""
+    system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{HOMEBREW_PREFIX}/lib\"", "-Djar=#{HOMEBREW_PREFIX}/lib/WRFRunner.jar"
     lib.install "#{@@jar_name}"
     if !(etc/"wrf-runner").exist?
       mkdir_p etc/"wrf-runner"
