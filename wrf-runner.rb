@@ -1,11 +1,10 @@
 class WrfRunner < Formula
-  desc "A collection of structures used throughout my libraries."
+  desc "A script for automatically running WRF and WPS models."
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
-  revision 1
 
-  url "#{@@project_url}.git", :tag => "1.1"
+  url "#{@@project_url}.git", :tag => "1.1.1"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
