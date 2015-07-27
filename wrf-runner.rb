@@ -3,6 +3,7 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "1.0.1"
 
@@ -13,6 +14,7 @@ class WrfRunner < Formula
   def install
     system "ant", "-Dprefix=\"./\"", "-Duse.homebrew=true"
     lib.install "#{@@jar_name}"
+    etc.install "configuration.json"
   end
 
   def caveats
