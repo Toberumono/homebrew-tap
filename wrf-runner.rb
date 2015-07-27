@@ -3,12 +3,13 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "1.0"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
-  depends_on "NamelistParser"
+  depends_on "namelist-parser"
 
   def install
     system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{HOMEBREW_PREFIX}/libexec\""
