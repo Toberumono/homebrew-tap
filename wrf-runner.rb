@@ -3,12 +3,11 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "1.2"
 
   head "#{@@project_url}.git"
-
-  option "without-packaged-libs", "Build without packing libraries in the .jar.  This will likely break the program"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
@@ -24,7 +23,7 @@ class WrfRunner < Formula
     if !(etc/"wrf-runner/configuration.json").exist?
       mv "configuration.json", etc/"wrf-runner/configuration.json"
     end
-    #Yeah, this is messy, but Homebrew really likes to make things execute only.
+    #Yeah, this is messy, but Homebrew likes to make things execute only.
     cp "wrf-linker.sh", "#{HOMEBREW_PREFIX}/bin/wrf-linker.sh"
   end
 
