@@ -7,6 +7,8 @@ class Structures < Formula
 
   url "#{@@project_url}.git", :tag => "1.2"
 
+  head "#{@@project_url}.git"
+
   depends_on :java => "1.8+"
   depends_on "ant" => :build
 

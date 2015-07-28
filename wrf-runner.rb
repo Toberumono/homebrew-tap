@@ -3,9 +3,12 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
-  revision 1
 
-  url "#{@@project_url}.git", :tag => "1.1.4"
+  url "#{@@project_url}.git", :tag => "1.2"
+
+  head "#{@@project_url}.git"
+
+  option "without-packaged-libs", "Build without packing libraries in the .jar.  This will likely break the program"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
@@ -13,7 +16,7 @@ class WrfRunner < Formula
   depends_on "namelist-parser"
 
   def install
-    system "ant", "-Dprefix=\"./\"", "-Dlibs=\"#{HOMEBREW_PREFIX}/lib\"", "-Dpackage_libs=true"
+    system "ant", "-Dprefix=./", "-Duse.homebrew=true", "-Dbrew.path=#{HOMEBREW_PREFIX}/bin/brew"
     lib.install "#{@@jar_name}"
     if !(etc/"wrf-runner").exist?
       mkdir_p etc/"wrf-runner"
@@ -21,7 +24,7 @@ class WrfRunner < Formula
     if !(etc/"wrf-runner/configuration.json").exist?
       mv "configuration.json", etc/"wrf-runner/configuration.json"
     end
-    #Yeah, this is messing, but fucking hell, Homebrew likes to make things execute only.
+    #Yeah, this is messy, but Homebrew really likes to make things execute only.
     cp "wrf-linker.sh", "#{HOMEBREW_PREFIX}/bin/wrf-linker.sh"
   end
 
