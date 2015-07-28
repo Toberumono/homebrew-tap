@@ -5,7 +5,7 @@ class Structures < Formula
   homepage "#{@@project_url}"
   revision 2
 
-  url "#{@@project_url}.git", :tag => "1.2"
+  url "#{@@project_url}.git", :tag => "1.2.2"
 
   head "#{@@project_url}.git"
 
