@@ -4,9 +4,11 @@ class WrfRunner < Formula
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
 
-  url "#{@@project_url}.git", :tag => "1.3"
+  url "#{@@project_url}.git", :tag => "1.4"
 
   head "#{@@project_url}.git"
+
+  option "with-fresh-configuration", "Use this to wipe your existing configuration"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
@@ -20,8 +22,16 @@ class WrfRunner < Formula
     if !(etc/"wrf-runner").exist?
       mkdir_p etc/"wrf-runner"
     end
+    if build.with? "fresh-configuration"
+      if (etc/"wrf-runner/configuration.json").exist?
+        rm etc/"wrf-runner/configuration.json"
+      end
+      if (etc/"wrf-runner/configuration.json.default").exist?
+        rm etc/"wrf-runner/configuration.json.default"
+      end
+    end
     if !(etc/"wrf-runner/configuration.json").exist?
-      mv "configuration.json", etc/"wrf-runner/configuration.json"
+      (etc/"wrf-runner").install "configuration.json"
     end
     #Yeah, this is messy, but Homebrew likes to make things execute only.
     cp "wrf-linker.sh", "#{HOMEBREW_PREFIX}/bin/wrf-linker.sh"
