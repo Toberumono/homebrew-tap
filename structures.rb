@@ -3,9 +3,8 @@ class Structures < Formula
   @@jar_name="Structures.jar"
   @@project_url="https://github.com/Toberumono/Structures"
   homepage "#{@@project_url}"
-  revision 2
 
-  url "#{@@project_url}.git", :tag => "1.2.2"
+  url "#{@@project_url}.git", :tag => "1.2.3"
 
   head "#{@@project_url}.git"
 
