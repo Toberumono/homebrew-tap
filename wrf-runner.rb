@@ -3,6 +3,7 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "1.5"
 
@@ -13,8 +14,8 @@ class WrfRunner < Formula
   depends_on :java => "1.8+"
   depends_on "ant" => :build
   depends_on "wget"
-  depends_on "namelist-parser"
-  depends_on "utils"
+  depends_on "toberumono/tap/namelist-parser"
+  depends_on "toberumono/tap/utils"
 
   def install
     system "ant", "-Dprefix=./", "-Duse.homebrew=true", "-Dbrew.path=#{HOMEBREW_PREFIX}/bin/brew"
@@ -39,10 +40,13 @@ class WrfRunner < Formula
 
   def caveats
     <<-EOS.undent
-      There are two ways to use this program.
-      You can either run it from #{HOMEBREW_PREFIX}/lib/#{@@jar_name}, or,
-      you can run "wrf-linker.sh <directory from which you want to run WRFRunner>".
-      I highly reccomend the second option.
+      There are three ways to use this program.
+      You can either run it from #{HOMEBREW_PREFIX}/lib/#{@@jar_name},
+      you can run "wrf-linker.sh <directory from which you want to run WRFRunner>", or
+      cd into the directory from which you want to run the program and run "wrf-linker.sh"
+      I highly reccomend the third option.
+      If you wish to use this as a library, add:
+        #{HOMEBREW_PREFIX}/lib/#{@@jar_name} to your classpath.
     EOS
   end
 end

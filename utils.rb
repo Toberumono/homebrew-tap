@@ -3,6 +3,7 @@ class Utils < Formula
   @@jar_name="Utils.jar"
   @@project_url="https://github.com/Toberumono/Utils"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "1.2.8"
 
@@ -19,7 +20,7 @@ class Utils < Formula
   def caveats
     <<-EOS.undent
       In order to reference #{@@jar_name} in a Java program,
-      add #{HOMEBREW_PREFIX}/lib to your classpath.
+      add #{HOMEBREW_PREFIX}/lib/#{@@jar_name} to your classpath.
     EOS
   end
 end
