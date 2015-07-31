@@ -4,7 +4,7 @@ class Utils < Formula
   @@project_url="https://github.com/Toberumono/Utils"
   homepage "#{@@project_url}"
 
-  url "#{@@project_url}.git", :tag => "1.2.7"
+  url "#{@@project_url}.git", :tag => "1.2.8"
 
   head "#{@@project_url}.git"
 
