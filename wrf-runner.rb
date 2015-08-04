@@ -43,9 +43,10 @@ class WrfRunner < Formula
       You can either run it from #{HOMEBREW_PREFIX}/lib/#{@@jar_name},
       you can run "wrf-linker.sh <directory from which you want to run WRFRunner>", or
       cd into the directory from which you want to run the program and run "wrf-linker.sh"
-      I highly reccomend the third option.
-      If you wish to use this as a library, add:
-        #{HOMEBREW_PREFIX}/lib/#{@@jar_name} to your classpath.
+      I highly recommend the third option.
+      If you previously ran wrf-linker.sh, you don't need to re-run it.
+      If you wish to use this as a library,
+      add #{HOMEBREW_PREFIX}/lib/#{@@jar_name} to your classpath.
     EOS
   end
 end
