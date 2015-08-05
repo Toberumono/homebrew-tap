@@ -3,6 +3,7 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "1.5.6"
 
@@ -21,7 +22,7 @@ class WrfRunner < Formula
 
   def install
     if build.with? "fine-logging"
-      inreplace "src/toberumono/wrf/WRFRunner.java" "log.setLevel(Level.INFO);" "log.setLevel(Level.FINE);"
+      inreplace "src/toberumono/wrf/WRFRunner.java", "log.setLevel(Level.INFO);", "log.setLevel(Level.FINE);"
     end
     system "ant", "-Dprefix=./", "-Duse.homebrew=true", "-Dbrew.path=#{HOMEBREW_PREFIX}/bin/brew"
     lib.install "#{@@jar_name}"
