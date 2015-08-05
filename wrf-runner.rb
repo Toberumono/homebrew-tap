@@ -4,7 +4,7 @@ class WrfRunner < Formula
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
 
-  url "#{@@project_url}.git", :tag => "1.5.7"
+  url "#{@@project_url}.git", :tag => "1.5.8"
 
   head "#{@@project_url}.git"
 
