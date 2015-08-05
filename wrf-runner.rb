@@ -4,19 +4,25 @@ class WrfRunner < Formula
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
 
-  url "#{@@project_url}.git", :tag => "1.5.4"
+  url "#{@@project_url}.git", :tag => "1.5.6"
 
   head "#{@@project_url}.git"
 
   option "with-fresh-configuration", "Use this to wipe your existing configuration"
+  option "with-fine-logging", "Use this to set the logging level to fine"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
   depends_on "wget"
   depends_on "toberumono/tap/namelist-parser"
+  depends_on "toberumono/tap/json-library"
+  depends_on "toberumono/tap/structures"
   depends_on "toberumono/tap/utils"
 
   def install
+    if build.with? "fine-logging"
+      inreplace "src/toberumono/wrf/WRFRunner.java" "log.setLevel(Level.INFO);" "log.setLevel(Level.FINE);"
+    end
     system "ant", "-Dprefix=./", "-Duse.homebrew=true", "-Dbrew.path=#{HOMEBREW_PREFIX}/bin/brew"
     lib.install "#{@@jar_name}"
     if !(etc/"wrf-runner").exist?
