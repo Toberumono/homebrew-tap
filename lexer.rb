@@ -13,7 +13,7 @@ class Lexer < Formula
   depends_on "ant" => :build
 
   def install
-    system "ant", "-Dprefix=\"./\""
+    system "ant", "-Dprefix=./"
     lib.install "#{@@jar_name}"
   end
 
