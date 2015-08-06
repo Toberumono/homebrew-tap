@@ -3,7 +3,7 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
-  revision 1
+  revision 2
 
   url "#{@@project_url}.git", :tag => "1.5.8"
 
@@ -11,6 +11,8 @@ class WrfRunner < Formula
 
   option "with-fresh-configuration", "Use this to wipe your existing configuration"
   option "with-fine-logging", "Use this to set the logging level to fine"
+  option "package-libraries", "Use this to force the libraries to be packaged inside the .jar file.  This is not recommended, but is available on the off-chance that it's needed at some point"
+  option "package-libs", "Equivalent to package-libraries"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
@@ -24,7 +26,12 @@ class WrfRunner < Formula
     if build.with? "fine-logging"
       inreplace "src/toberumono/wrf/WRFRunner.java", "log.setLevel(Level.INFO);", "log.setLevel(Level.FINE);"
     end
-    system "ant", "-Dprefix=./", "-Duse.homebrew=true", "-Dbrew.path=#{HOMEBREW_PREFIX}/bin/brew"
+
+    args = ["-Duse.homebrew=true", "-Dbrew.path=#{HOMEBREW_PREFIX}/bin/brew"]
+    if build.include? "package-libraries" or build.include? "package-libs"
+      args << "-Dpackage.libs=true"
+    end
+    system "ant", "-Dprefix=./", *args
     lib.install "#{@@jar_name}"
     if !(etc/"wrf-runner").exist?
       mkdir_p etc/"wrf-runner"
@@ -45,7 +52,7 @@ class WrfRunner < Formula
   end
 
   def caveats
-    #Homebrew forces shell scripts to read-only as part of its installation process.  This changes the file to executable.
+    #Homebrew forces shell scripts to read-only as part of its installation process.  This changes the file back to executable.
     #Yeah, I know it's absurd, but I'm not kidding.
     system "chmod", "555", bin/"wrf-linker.sh"
     <<-EOS.undent

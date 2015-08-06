@@ -3,10 +3,14 @@ class JsonLibrary < Formula
   @@jar_name="JSONLib.jar"
   @@project_url="https://github.com/Toberumono/JSON-Library"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "2.4.3"
 
   head "#{@@project_url}.git"
+
+  option "package-libraries", "Use this to force the libraries to be packaged inside the .jar file.  This is not recommended, but is available on the off-chance that it's needed at some point"
+  option "package-libs", "Equivalent to package-libraries"
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
@@ -15,7 +19,11 @@ class JsonLibrary < Formula
   depends_on "toberumono/tap/utils"
 
   def install
-    system "ant", "-Dprefix=./", "-Duse.homebrew=true", "-Dbrew.path=#{HOMEBREW_PREFIX}/bin/brew"
+    args = ["-Duse.homebrew=true", "-Dbrew.path=#{HOMEBREW_PREFIX}/bin/brew"]
+    if build.include? "package-libraries" or build.include? "package-libs"
+      args << "-Dpackage.libs=true"
+    end
+    system "ant", "-Dprefix=./", *args
     lib.install "#{@@jar_name}"
   end
 
