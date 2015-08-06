@@ -3,6 +3,7 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "1.5.8"
 
@@ -39,12 +40,14 @@ class WrfRunner < Formula
     if !(etc/"wrf-runner/configuration.json").exist?
       (etc/"wrf-runner").install "configuration.json"
     end
-    #Yeah, this is messy, but Homebrew likes to make things execute only.
+    system "chgrp", "admin", "wrf-linker.sh"
     bin.install "wrf-linker.sh"
-    #cp "wrf-linker.sh", "#{HOMEBREW_PREFIX}/bin/wrf-linker.sh"
   end
 
   def caveats
+    #Homebrew forces shell scripts to read-only as part of its installation process.  This changes the file to executable.
+    #Yeah, I know it's absurd, but I'm not kidding.
+    system "chmod", "555", bin/"wrf-linker.sh"
     <<-EOS.undent
       There are three ways to use this program.
       You can either run it from #{HOMEBREW_PREFIX}/lib/#{@@jar_name},
