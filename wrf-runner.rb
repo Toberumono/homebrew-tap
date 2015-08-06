@@ -56,7 +56,7 @@ class WrfRunner < Formula
     <<-EOS.undent
       There are three ways to use this program.
       You can either run it from #{HOMEBREW_PREFIX}/lib/#{@@jar_name},
-      you can run "wrf-linker.sh <directory from which you want to run WRFRunner>", or
+      run "wrf-linker.sh <directory from which you want to run WRFRunner>", or
       cd into the directory from which you want to run the program and run "wrf-linker.sh"
       I highly recommend the third option.
       If you previously ran wrf-linker.sh, you don't need to re-run it.
