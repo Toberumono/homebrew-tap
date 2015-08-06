@@ -3,9 +3,8 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
-  revision 3
 
-  url "#{@@project_url}.git", :tag => "1.5.8"
+  url "#{@@project_url}.git", :tag => "1.6.0"
 
   head "#{@@project_url}.git"
 
