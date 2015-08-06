@@ -40,7 +40,8 @@ class WrfRunner < Formula
       (etc/"wrf-runner").install "configuration.json"
     end
     #Yeah, this is messy, but Homebrew likes to make things execute only.
-    cp "wrf-linker.sh", "#{HOMEBREW_PREFIX}/bin/wrf-linker.sh"
+    bin.install "wrf-linker.sh"
+    #cp "wrf-linker.sh", "#{HOMEBREW_PREFIX}/bin/wrf-linker.sh"
   end
 
   def caveats
