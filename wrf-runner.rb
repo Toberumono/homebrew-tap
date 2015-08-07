@@ -3,6 +3,7 @@ class WrfRunner < Formula
   @@jar_name="WRFRunner.jar"
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "1.7.2"
 
@@ -53,6 +54,7 @@ class WrfRunner < Formula
     #Yeah, I know this seems convoluted, but it's the way to go apparently
     libexec.install "wrf-linker.sh"
     bin.install_symlink libexec/"wrf-linker.sh"
+    doc.install ["doc/index-files", "doc/toberumono"]
   end
 
   def caveats
@@ -65,6 +67,8 @@ class WrfRunner < Formula
       If you previously ran wrf-linker.sh, you don't need to re-run it.
       If you wish to use this as a library,
       add #{HOMEBREW_PREFIX}/lib/#{@@jar_name} to your classpath.
+      The documentation can be found in:
+      #{HOMEBREW_PREFIX}/share/doc/namelist-parser/
     EOS
   end
 end
