@@ -3,7 +3,6 @@ class NamelistParser < Formula
   @@jar_name="NamelistParser.jar"
   @@project_url="https://github.com/Toberumono/Namelist-Parser"
   homepage "#{@@project_url}"
-  revision 2
 
   url "#{@@project_url}.git", :tag => "2.0.1"
 
