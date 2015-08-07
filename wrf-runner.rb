@@ -4,7 +4,7 @@ class WrfRunner < Formula
   @@project_url="https://github.com/Toberumono/WRF-Runner"
   homepage "#{@@project_url}"
 
-  url "#{@@project_url}.git", :tag => "1.6.2"
+  url "#{@@project_url}.git", :tag => "1.7.0"
 
   head "#{@@project_url}.git"
 
@@ -14,7 +14,7 @@ class WrfRunner < Formula
 
   option "with-fresh-configuration", "Use this to wipe your existing configuration"
   option "with-fine-logging", "Use this to set the logging level to fine"
-  option "package-libraries", "Use this to force the libraries to be packaged inside the .jar file.  This is not recommended, but is available on the off-chance that it's needed at some point"
+  option "package-libraries", "Use this to force the libraries to be packaged inside the .jar file. This is not recommended"
   option "package-libs", "Equivalent to package-libraries"
 
   depends_on :java => "1.8+"
