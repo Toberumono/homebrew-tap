@@ -68,7 +68,7 @@ class WrfRunner < Formula
       If you wish to use this as a library,
       add #{HOMEBREW_PREFIX}/lib/#{@@jar_name} to your classpath.
       The documentation can be found in:
-      #{HOMEBREW_PREFIX}/share/doc/namelist-parser/
+      #{HOMEBREW_PREFIX}/share/doc/wrf-runner/
     EOS
   end
 end

@@ -33,7 +33,7 @@ class JsonLibrary < Formula
       In order to reference #{@@jar_name} in a Java program,
       add #{HOMEBREW_PREFIX}/lib/#{@@jar_name} to your classpath.
       The documentation can be found in:
-      #{HOMEBREW_PREFIX}/share/doc/namelist-parser/
+      #{HOMEBREW_PREFIX}/share/doc/json-library/
     EOS
   end
 end
