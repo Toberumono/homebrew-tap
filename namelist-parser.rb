@@ -5,13 +5,13 @@ class NamelistParser < Formula
   homepage "#{@@project_url}"
   revision 2
 
-  url "#{@@project_url}.git", :tag => "1.2.2"
+  url "#{@@project_url}.git", :tag => "2.0.1"
 
   head "#{@@project_url}.git"
 
   option "package-libraries", "Use this to force the libraries to be packaged inside the .jar file.  This is not recommended, but is available on the off-chance that it's needed at some point"
   option "package-libs", "Equivalent to package-libraries"
-  
+
   depends_on :java => "1.8+"
   depends_on "ant" => :build
   depends_on "toberumono/tap/json-library"
