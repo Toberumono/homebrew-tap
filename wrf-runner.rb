@@ -8,7 +8,9 @@ class WrfRunner < Formula
 
   head "#{@@project_url}.git"
 
-  devel "#{@@project_url}.git", :branch => "develop"
+  devel do
+    url "#{@@project_url}.git", :branch => "develop"
+  end
 
   option "with-fresh-configuration", "Use this to wipe your existing configuration"
   option "with-fine-logging", "Use this to set the logging level to fine"
