@@ -8,6 +8,8 @@ class WrfRunner < Formula
 
   head "#{@@project_url}.git"
 
+  devel "#{@@project_url}.git", :branch => "develop"
+
   option "with-fresh-configuration", "Use this to wipe your existing configuration"
   option "with-fine-logging", "Use this to set the logging level to fine"
   option "package-libraries", "Use this to force the libraries to be packaged inside the .jar file.  This is not recommended, but is available on the off-chance that it's needed at some point"
