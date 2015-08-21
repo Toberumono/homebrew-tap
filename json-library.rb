@@ -3,9 +3,8 @@ class JsonLibrary < Formula
   @@jar_name="JSONLib.jar"
   @@project_url="https://github.com/Toberumono/JSON-Library"
   homepage "#{@@project_url}"
-  revision 1
 
-  url "#{@@project_url}.git", :tag => "2.5.0"
+  url "#{@@project_url}.git", :tag => "2.5.2"
 
   head "#{@@project_url}.git"
 
