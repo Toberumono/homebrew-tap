@@ -19,7 +19,6 @@ class WrfRunner < Formula
 
   depends_on :java => "1.8+"
   depends_on "ant" => :build
-  depends_on "wget"
   depends_on "toberumono/tap/namelist-parser"
   depends_on "toberumono/tap/json-library"
   depends_on "toberumono/tap/structures"
