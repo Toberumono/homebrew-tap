@@ -3,6 +3,7 @@ class JsonLibrary < Formula
   @@jar_name="JSONLib.jar"
   @@project_url="https://github.com/Toberumono/JSON-Library"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "2.5.4"
 
@@ -24,7 +25,7 @@ class JsonLibrary < Formula
     end
     system "ant", "-Dprefix=./", *args
     lib.install "#{@@jar_name}"
-    doc.install ["doc/index-files", "doc/toberumono"]
+    (share/"toberumono").install "doc"
   end
 
   def caveats

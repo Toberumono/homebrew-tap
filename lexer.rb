@@ -3,7 +3,7 @@ class Lexer < Formula
   @@jar_name="Lexer.jar"
   @@project_url="https://github.com/Toberumono/Lexer"
   homepage "#{@@project_url}"
-  revision 2
+  revision 3
 
   url "#{@@project_url}.git", :tag => "2.2.3"
 
@@ -23,7 +23,7 @@ class Lexer < Formula
     end
     system "ant", "-Dprefix=./", *args
     lib.install "#{@@jar_name}"
-    (share/"toberumono"/"doc").install "doc"
+    (share/"toberumono").install "doc"
   end
 
   def caveats
