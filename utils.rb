@@ -3,6 +3,7 @@ class Utils < Formula
   @@jar_name="Utils.jar"
   @@project_url="https://github.com/Toberumono/Utils"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "1.5.6"
 
@@ -14,7 +15,7 @@ class Utils < Formula
   def install
     system "ant", "-Dprefix=./"
     lib.install "#{@@jar_name}"
-    doc.install ["doc/index-files", "doc/toberumono"]
+    doc.install Dir["doc/*"]
   end
 
   def caveats
@@ -22,7 +23,9 @@ class Utils < Formula
       In order to reference #{@@jar_name} in a Java program,
       add #{HOMEBREW_PREFIX}/lib/#{@@jar_name} to your classpath.
       The documentation can be found in:
-      #{HOMEBREW_PREFIX}/share/doc/utils/
+      #{HOMEBREW_PREFIX}/share/doc/#{name}
+      run 'open #{HOMEBREW_PREFIX}/share/doc/#{name}/index.html'
+      to view it in your default web browser.
     EOS
   end
 end

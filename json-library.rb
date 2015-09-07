@@ -3,7 +3,7 @@ class JsonLibrary < Formula
   @@jar_name="JSONLib.jar"
   @@project_url="https://github.com/Toberumono/JSON-Library"
   homepage "#{@@project_url}"
-  revision 1
+  revision 2
 
   url "#{@@project_url}.git", :tag => "2.5.4"
 
@@ -25,7 +25,7 @@ class JsonLibrary < Formula
     end
     system "ant", "-Dprefix=./", *args
     lib.install "#{@@jar_name}"
-    (share/"toberumono").install "doc"
+    doc.install Dir["doc/*"]
   end
 
   def caveats
@@ -33,7 +33,9 @@ class JsonLibrary < Formula
       In order to reference #{@@jar_name} in a Java program,
       add #{HOMEBREW_PREFIX}/lib/#{@@jar_name} to your classpath.
       The documentation can be found in:
-      #{HOMEBREW_PREFIX}/share/doc/json-library/
+      #{HOMEBREW_PREFIX}/share/doc/#{name}
+      run 'open #{HOMEBREW_PREFIX}/share/doc/#{name}/index.html'
+      to view it in your default web browser.
     EOS
   end
 end

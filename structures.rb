@@ -3,6 +3,7 @@ class Structures < Formula
   @@jar_name="Structures.jar"
   @@project_url="https://github.com/Toberumono/Structures"
   homepage "#{@@project_url}"
+  revision 1
 
   url "#{@@project_url}.git", :tag => "1.2.7"
 
@@ -14,7 +15,7 @@ class Structures < Formula
   def install
     system "ant", "-Dprefix=./"
     lib.install "#{@@jar_name}"
-    doc.install ["doc/index-files", "doc/toberumono"]
+    doc.install Dir["doc/*"]
   end
 
   def caveats
@@ -22,7 +23,9 @@ class Structures < Formula
       In order to reference #{@@jar_name} in a Java program,
       add #{HOMEBREW_PREFIX}/lib/#{@@jar_name} to your classpath.
       The documentation can be found in:
-      #{HOMEBREW_PREFIX}/share/doc/structures/
+      #{HOMEBREW_PREFIX}/share/doc/#{name}
+      run 'open #{HOMEBREW_PREFIX}/share/doc/#{name}/index.html'
+      to view it in your default web browser.
     EOS
   end
 end

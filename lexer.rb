@@ -3,7 +3,7 @@ class Lexer < Formula
   @@jar_name="Lexer.jar"
   @@project_url="https://github.com/Toberumono/Lexer"
   homepage "#{@@project_url}"
-  revision 3
+  revision 4
 
   url "#{@@project_url}.git", :tag => "2.2.3"
 
@@ -23,7 +23,7 @@ class Lexer < Formula
     end
     system "ant", "-Dprefix=./", *args
     lib.install "#{@@jar_name}"
-    (share/"toberumono").install "doc"
+    doc.install Dir["doc/*"]
   end
 
   def caveats
@@ -31,7 +31,9 @@ class Lexer < Formula
       In order to reference #{@@jar_name} in a Java program,
       add #{HOMEBREW_PREFIX}/lib/#{@@jar_name} to your classpath.
       The documentation can be found in:
-      #{HOMEBREW_PREFIX}/share/doc/lexer/
+      #{HOMEBREW_PREFIX}/share/doc/#{name}
+      run 'open #{HOMEBREW_PREFIX}/share/doc/#{name}/index.html'
+      to view it in your default web browser.
     EOS
   end
 end
