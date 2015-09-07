@@ -3,19 +3,27 @@ class Lexer < Formula
   @@jar_name="Lexer.jar"
   @@project_url="https://github.com/Toberumono/Lexer"
   homepage "#{@@project_url}"
-  revision 1
+  revision 2
 
   url "#{@@project_url}.git", :tag => "2.2.3"
 
   head "#{@@project_url}.git"
 
+  option "package-libraries", "Use this to force the libraries to be packaged inside the .jar file. This is not recommended"
+  option "package-libs", "Equivalent to package-libraries"
+
   depends_on :java => "1.8+"
   depends_on "ant" => :build
+  depends_on "toberumono/tap/utils"
 
   def install
-    system "ant", "-Dprefix=./"
+    args = ["-Duse.homebrew=true", "-Dbrew.path=#{HOMEBREW_PREFIX}/bin/brew"]
+    if build.include? "package-libraries" or build.include? "package-libs"
+      args << "-Dpackage.libs=true"
+    end
+    system "ant", "-Dprefix=./", *args
     lib.install "#{@@jar_name}"
-    doc.install ["doc/index-files", "doc/toberumono"]
+    (share/"toberumono"/"doc").install "doc"
   end
 
   def caveats
