@@ -14,6 +14,7 @@ class Lexer < Formula
   depends_on :java => "1.8+"
   depends_on "ant" => :build
   depends_on "toberumono/tap/utils"
+  depends_on "toberumono/tap/structures"
 
   def install
     args = ["-Duse.homebrew=true", "-Dbrew.path=#{HOMEBREW_PREFIX}/bin/brew"]
