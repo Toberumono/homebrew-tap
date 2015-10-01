@@ -5,7 +5,7 @@ class WrfRunner < Formula
   homepage "#{@@project_url}"
   revision 1
 
-  url "#{@@project_url}.git", :tag => "2.1.6"
+  url "#{@@project_url}.git", :tag => "2.1.7"
 
   head "#{@@project_url}.git"
 
