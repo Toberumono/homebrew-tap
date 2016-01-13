@@ -4,7 +4,7 @@ class JsonLibrary < Formula
   @@project_url="https://github.com/Toberumono/JSON-Library"
   homepage "#{@@project_url}"
 
-  url "#{@@project_url}.git", :tag => "2.8.3"
+  url "#{@@project_url}.git", :tag => "2.8.4"
 
   head "#{@@project_url}.git"
 
