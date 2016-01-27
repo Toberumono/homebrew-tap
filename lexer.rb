@@ -4,7 +4,7 @@ class Lexer < Formula
   @@project_url="https://github.com/Toberumono/Lexer"
   homepage "#{@@project_url}"
 
-  url "#{@@project_url}.git", :tag => "3.6.9"
+  url "#{@@project_url}.git", :tag => "3.7.0"
 
   head "#{@@project_url}.git"
 
