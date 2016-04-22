@@ -4,7 +4,7 @@ class Structures < Formula
   @@project_url="https://github.com/Toberumono/Structures"
   homepage "#{@@project_url}"
 
-  url "#{@@project_url}.git", :tag => "4.2.0"
+  url "#{@@project_url}.git", :tag => "4.2.1"
 
   head "#{@@project_url}.git"
 
