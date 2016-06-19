@@ -25,10 +25,6 @@ class WrfRunner < Formula
   depends_on "toberumono/tap/utils"
 
   def install
-    if build.with? "fine-logging"
-      inreplace "src/toberumono/wrf/WRFRunner.java", "log.setLevel(Level.INFO);", "log.setLevel(Level.FINE);"
-    end
-
     args = ["-Duse.homebrew=true", "-Dbrew.path=#{HOMEBREW_PREFIX}/bin/brew"]
     if build.include? "package-libraries" or build.include? "package-libs"
       args << "-Dpackage.libs=true"
