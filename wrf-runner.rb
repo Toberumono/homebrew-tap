@@ -68,7 +68,7 @@ class WrfRunner < Formula
 
       If you are updating from a version less than 4.0.0 to a version of at least 4.0.0,
       check to ensure that none of the Strings in your configuration file start with an '='
-      unless they are formuale.  For more details, see:
+      unless they are formulae.  For more details, see:
       https://github.com/Toberumono/WRF-Runner#upgrading-to-version-4
     EOS
   end
